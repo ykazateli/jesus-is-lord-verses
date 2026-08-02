@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Иисус Христос — Господь | Указатели</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Comic Neue', 'Comic Sans MS', sans-serif;
+            background: #fdf8e7;
+            background-image: radial-gradient(circle at 10% 20%, rgba(218, 178, 115, 0.08) 0%, rgba(0,0,0,0) 50%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .app-container {
+            max-width: 1100px;
+            width: 100%;
+            background: #fff6e8;
+            border-radius: 48px;
+            box-shadow: 0 20px 35px rgba(100, 70, 30, 0.15);
+            padding: 30px 30px 40px;
+            border: 1px solid #f0dbb4;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header .studio-link {
+            display: inline-block;
+            font-size: 1rem;
+            color: #b48a62;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #b48a62;
+            padding-bottom: 2px;
+            transition: 0.2s;
+        }
+
+        .header .studio-link:hover {
+            color: #8b6b4a;
+            border-bottom-color: #8b6b4a;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            color: #4a3520;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: #7a5a3a;
+            font-weight: 300;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 280px;
+            perspective: 800px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #e6dacb;
+        }
+
+        .flip-card-front {
+            background: #ffffff;
+            color: #4a3520;
+        }
+
+        .flip-card-front .symbol {
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+        }
+
+        .flip-card-front .ref {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #b48a62;
+        }
+
+        .flip-card-front .hint {
+            font-size: 0.8rem;
+            color: #a58d7a;
+            margin-top: 20px;
+            border-top: 1px solid #ece3d6;
+            padding-top: 16px;
+            width: 80%;
+        }
+
+        .flip-card-back {
+            background: #fefaf3;
+            transform: rotateY(180deg);
+            border-color: #dccdb9;
+        }
+
+        .flip-card-back .verse-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #3e2c1a;
+            font-style: italic;
+            max-width: 90%;
+        }
+
+        .flip-card-back .verse-ref {
+            margin-top: 14px;
+            font-weight: 600;
+            color: #b48a62;
+            font-size: 0.9rem;
+            font-style: normal;
+        }
+
+        .footer {
+            margin-top: 10px;
+            border-top: 1px solid #e6dacb;
+            padding-top: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer .studio-link {
+            color: #b48a62;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            border-bottom: 1px dashed #b48a62;
+            padding-bottom: 2px;
+            transition: 0.2s;
+        }
+
+        .footer .studio-link:hover {
+            color: #8b6b4a;
+            border-bottom-color: #8b6b4a;
+        }
+
+        .footer .small-note {
+            color: #a58d7a;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .app-container { padding: 20px 15px; }
+            .header h1 { font-size: 1.8rem; }
+            .cards-grid { gap: 18px; }
+            .flip-card { height: 250px; }
+            .flip-card-front .symbol { font-size: 2.8rem; }
+            .flip-card-front .ref { font-size: 1.1rem; }
+            .flip-card-back .verse-text { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <a href="https://vk.com/ykazateli_of_christ" target="_blank" class="studio-link">
+                🕯️ Библейская студия анимации «Указатели»
+            </a>
+            <h1>📖 Иисус Христос — Господь</h1>
+            <p class="subtitle">Стихи Нового Завета, открывающие божественность Иисуса</p>
+        </div>
+
+        <div class="cards-grid">
+
+            <!-- 1. Ин. 1:1, 14 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="symbol">📜</div>
+                        <div class="ref">Ин. 1:1, 14</div>
+                        <div class="hint">нажми, чтобы открыть</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="verse-text">«В начале было Слово, и Слово было у Бога, и Слово было Бог... И Слово стало плотию, и обитало с нами»</div>
+                        <div class="verse-ref">— Ин. 1:1, 14</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 1 Ин. 5:20 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="symbol">✨</div>
+                        <div class="ref">1 Ин. 5:20</div>
+                        <div class="hint">нажми, чтобы открыть</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="verse-text">«Мы знаем, что Сын Божий пришел и дал нам разумение... Сей есть истинный Бог и жизнь вечная»</div>
+                        <div class="verse-ref">— 1 Ин. 5:20</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Рим. 9:5 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="symbol">👑</div>
+                        <div class="ref">Рим. 9:5</div>
+                        <div class="hint">нажми, чтобы открыть</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="verse-text">«...Христос по плоти, сущий над всем Бог, благословенный во веки»</div>
+                        <div class="verse-ref">— Рим. 9:5</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Ин. 8:25 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="symbol">🕊️</div>
+                        <div class="ref">Ин. 8:25</div>
+                        <div class="hint">нажми, чтобы открыть</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="verse-text">«Тогда сказали Ему: кто же Ты? Иисус сказал им: от начала Сущий, как и говорю вам»</div>
+                        <div class="verse-ref">— Ин. 8:25</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Деян. 10:36 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="symbol">🌍</div>
+                        <div class="ref">Деян. 10:36</div>
+                        <div class="hint">нажми, чтобы открыть</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="verse-text">«Он послал сынам Израилевым слово, благовествуя мир через Иисуса Христа, Господа всех»</div>
+                        <div class="verse-ref">— Деян. 10:36</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. 1 Тим. 3:16 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="symbol">🙌</div>
+                        <div class="ref">1 Тим. 3:16</div>
+                        <div class="hint">нажми, чтобы открыть</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="verse-text">«И беспрекословно — великая благочестия тайна: Бог явился во плоти, оправдал Себя в Духе, показал Себя Ангелам, проповедан в народах, принят верою в мире, вознесся во славе»</div>
+                        <div class="verse-ref">— 1 Тим. 3:16</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Откр. 1:8 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="symbol">α ☯ ω</div>
+                        <div class="ref">Откр. 1:8</div>
+                        <div class="hint">нажми, чтобы открыть</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="verse-text">«Я есмь Альфа и Омега, начало и конец, говорит Господь, Который есть и был и грядет, Вседержитель»</div>
+                        <div class="verse-ref">— Откр. 1:8</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. 1 Ин. 4:15 -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="symbol">🤝</div>
+                        <div class="ref">1 Ин. 4:15</div>
+                        <div class="hint">нажми, чтобы открыть</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="verse-text">«Кто исповедует, что Иисус есть Сын Божий, в том пребывает Бог, и он в Боге»</div>
+                        <div class="verse-ref">— 1 Ин. 4:15</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <a href="https://vk.com/ykazateli_of_christ" target="_blank" class="studio-link">
+                🕯️ Все стихи собраны в студии «Указатели»
+            </a>
+            <span class="small-note">Переходите в группу, чтобы не пропустить новые проекты</span>
+        </div>
+    </div>
+</body>
+</html>
